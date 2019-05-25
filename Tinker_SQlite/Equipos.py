@@ -59,24 +59,24 @@ def eliminar():
     removido = False     
     for elemento in lista:         
       arreglo = elemento.split("$")         
-      if conteliminar.get() == arreglo[6]:             
+      if conteliminar.get() == arreglo[3]:             
         lista.remove(elemento)             
         removido = True     
         escribirContacto()     
         consultar()     
         if removido:         
-          messagebox.showinfo("Eliminar","Elemento eliminado "+eliminado)          
+          messagebox.showinfo("Eliminar","Elemento eliminado "+ eliminado)          
  
 def consultar():     
   r = Text(ventana, width=100, height=15)     
   lista.sort()     
   valores = []     
-  r.insert(INSERT, "Nombres\t|\tApellidos \t|\tEquippo al cual pertenece\t|\tPais\t|\tPeso(Kg)\t|\tAltura(Mts)\t|\tId\n")     
+  r.insert(INSERT, "Nombres\t|\tApellidos \t|\tEquippo al cual pertenece\t|\tPais\t|\tPeso(Kg)\t|\tAltura(Mts)\n")     
   for elemento in lista:              
       arreglo = elemento.split("$")              
-      valores.append(arreglo[6])             
+      valores.append(arreglo[4])             
       r.insert(INSERT, arreglo[0]+"\t"+arreglo[1]+"\t\t"+ 
-                arreglo[2]+"\t\t"+arreglo[3]+"\t\t"+arreglo[4]+"\t\t"+arreglo[5]+"\t\t"+arreglo[6]+"\t\t")     
+                arreglo[2]+"\t\t"+arreglo[3]+"\t\t"+arreglo[4]+"\t\t"+arreglo[4]+"\t\t"+arreglo[4]+"\t\t")     
   r.place(x=20,y=230)     
   spinTelefono = Spinbox(ventana, value=(valores),textvariable=conteliminar).place(x=450, y=50)     
   if lista ==[]: 
@@ -141,7 +141,7 @@ cajaC = Entry(ventana, textvariable=Peso).place(x=150, y=170)
 etiquetaH = Label(ventana, text="Altura", bg=colorFondo,
  fg=colorLetra).place(x=70, y=170) 
 cajaH = Entry(ventana, textvariable=Altura).place(x=150, y=170) 
-etiquetaEliminar = Label(ventana, text="Teléfono: ", bg= colorFondo,
+etiquetaEliminar = Label(ventana, text="Eliminar (Pais):", bg= colorFondo,
   fg=colorLetra).place(x=370, y=50) 
 spinTelefono = Spinbox(ventana, textvariable=conteliminar).place(x=450, y=50) 
 botoGuardar = Button(ventana, text="Guardar", command=guardar, bg="#009",
